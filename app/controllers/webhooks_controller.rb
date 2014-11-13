@@ -1,6 +1,3 @@
-require "rubygems"
-require "braintree"
-
 Braintree::Configuration.environment = :sandbox
 Braintree::Configuration.merchant_id = '6fwrg6ccn34c95qj'
 Braintree::Configuration.public_key = 'v4mcvvzwz5cr33bz'
@@ -11,5 +8,6 @@ class WebhooksController < ApplicationController
 def webhooks
         challenge = request.params["bt_challenge"]
         challenge_response = Braintree::WebhookNotification.verify(challenge)
-        render plain: challenge_response, status: 200
+        render text: challenge_response, status: 200
+  end
 end

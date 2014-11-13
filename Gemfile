@@ -9,6 +9,7 @@ group :development, :test do
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
+  gem 'braintree' 
   gem 'childprocess', '0.3.6'
 end
 
@@ -30,6 +31,7 @@ end
 
 group :production do
   gem 'pg', '0.15.1'
+  gem 'braintree'
   gem 'rails_12factor', '0.0.2'
 end
 
