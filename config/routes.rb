@@ -1,8 +1,14 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
-  match 'webhooks/webhooks' => 'webhooks#verify', :as => :verify_webhook, :via => :get
+  get "users/new"
+
+  root 'static_pages#home'
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  
+
+  match 'webhooks/webhooks', to: 'webhooks#verify', :as => :verify_webhook, :via => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
