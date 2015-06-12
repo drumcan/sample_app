@@ -7,6 +7,7 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   
+  resources :users
 
   match 'webhooks/webhooks', to: 'webhooks#verify', :as => :verify_webhook, :via => :get
 
